@@ -2,7 +2,7 @@ Rails.application.routes.draw do
 
   namespace :api, defaults: {format: :json} do
     namespace :v1 do
-      resources :group_events, only: [:show, :index]
+      resources :group_events, only: [:show, :create, :index]
     end
   end
 

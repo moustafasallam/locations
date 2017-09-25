@@ -35,6 +35,9 @@ gem 'whenever', '~> 0.9.4' #for scheduled cron jobs
 gem "paranoia", "~> 2.2"
 gem 'geocoder', '~> 1.4', '>= 1.4.4'
 
+gem 'kaminari', '~> 0.16.3' #used for backend paginations
+gem 'api-pagination', '~> 4.1.1' #api pagination
+
 group :development, :test do
   gem 'pry-byebug', '~> 3.4', '>= 3.4.2'
   # Access an IRB console on exception pages or by using <%= console %> in views

@@ -1,7 +1,7 @@
 class GroupEventValidator
 
 	def initialize(params)
-		@params = params
+		@params = params.symbolize_keys
 		@valid = true
 		@message = "OK"
 		validate_name
