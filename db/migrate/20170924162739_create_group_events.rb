@@ -6,6 +6,9 @@ class CreateGroupEvents < ActiveRecord::Migration
       t.string :state, default:  "draft"
       t.date :start_date
       t.date :end_date
+      t.string :location, default: ""
+      t.float :latitude
+      t.float :longitude
       t.datetime :deleted_at
 
       t.timestamps null: false

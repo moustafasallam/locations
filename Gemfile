@@ -33,6 +33,7 @@ gem 'materialize-sass', '~> 0.98.2' #materialize css based on material design
 gem 'bunny', '~> 2.5' #rabbitmq lib
 gem 'whenever', '~> 0.9.4' #for scheduled cron jobs
 gem "paranoia", "~> 2.2"
+gem 'geocoder', '~> 1.4', '>= 1.4.4'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.4', '>= 3.4.2'

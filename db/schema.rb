@@ -20,8 +20,11 @@ ActiveRecord::Schema.define(version: 20170924162739) do
     t.string   "name",        default: ""
     t.text     "description"
     t.string   "state",       default: "draft"
-    t.datetime "start_date"
-    t.datetime "end_date"
+    t.date     "start_date"
+    t.date     "end_date"
+    t.string   "location",    default: ""
+    t.float    "latitude"
+    t.float    "longitude"
     t.datetime "deleted_at"
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false

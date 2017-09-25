@@ -76,6 +76,7 @@ GEM
       multipart-post (>= 1.2, < 3)
     ffi (1.9.18)
     formatador (0.2.5)
+    geocoder (1.4.4)
     globalid (0.4.0)
       activesupport (>= 4.2.0)
     guard (2.14.1)
@@ -245,6 +246,7 @@ DEPENDENCIES
   elasticsearch-rails
   factory_girl_rails
   faker (~> 1.6, >= 1.6.3)
+  geocoder (~> 1.4, >= 1.4.4)
   guard-rspec
   jbuilder (~> 2.0)
   jquery-rails

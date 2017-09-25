@@ -15,8 +15,8 @@ class GroupEvent < ActiveRecord::Base
     end
   end
 
-  validates :name, presence: true
-  validates :name, uniqueness: { case_sensitive: false }
+  geocoded_by :location
+  after_validation :geocode
 
 
   def self.states
@@ -24,7 +24,7 @@ class GroupEvent < ActiveRecord::Base
   end
 
   def as_indexed_json(options={})
-    as_json(only: [:id, :name, :description, :state, :start_date, :end_date])
+    as_json(only: [:id, :name, :description, :state, :start_date, :end_date, :location])
   end
 
 end
