@@ -32,6 +32,7 @@ gem 'geocoder', '~> 1.4', '>= 1.4.4'
 
 gem 'kaminari', '~> 0.16.3' #used for backend paginations
 gem 'countries', '~> 1.1.0'
+#gem 'cities', '~> 0.3.1'
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.4', '>= 3.4.2'
