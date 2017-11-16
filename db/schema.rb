@@ -11,25 +11,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170924162739) do
+ActiveRecord::Schema.define(version: 20171115162739) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "group_events", force: :cascade do |t|
-    t.string   "name",        default: ""
-    t.text     "description"
-    t.string   "state",       default: "draft"
-    t.date     "start_date"
-    t.date     "end_date"
-    t.string   "location",    default: ""
-    t.float    "latitude"
-    t.float    "longitude"
-    t.datetime "deleted_at"
-    t.datetime "created_at",                    null: false
-    t.datetime "updated_at",                    null: false
+  create_table "locations", force: :cascade do |t|
+    t.string   "city_name",                                     default: ""
+    t.integer  "city_id",                                       default: 0
+    t.string   "country_code",                                  default: ""
+    t.integer  "sunrise",                                       default: 0
+    t.integer  "sunset",                                        default: 0
+    t.float    "wind_speed",                                    default: 0.0
+    t.integer  "wind_degree",                                   default: 0
+    t.float    "temperature",                                   default: 0.0
+    t.float    "min_temp",                                      default: 0.0
+    t.float    "max_temp",                                      default: 0.0
+    t.integer  "humidity",                                      default: 0
+    t.string   "weather_title",                                 default: ""
+    t.string   "weather_description",                           default: ""
+    t.decimal  "latitude",            precision: 16, scale: 10
+    t.decimal  "longitude",           precision: 16, scale: 10
+    t.datetime "created_at",                                                  null: false
+    t.datetime "updated_at",                                                  null: false
   end
 
-  add_index "group_events", ["deleted_at"], name: "index_group_events_on_deleted_at", using: :btree
+  add_index "locations", ["city_id"], name: "index_locations_on_city_id", unique: true, using: :btree
+  add_index "locations", ["city_name"], name: "index_locations_on_city_name", using: :btree
+  add_index "locations", ["country_code"], name: "index_locations_on_country_code", using: :btree
 
 end
