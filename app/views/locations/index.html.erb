@@ -1,4 +1,38 @@
   <div class="row">
+
+    <div class="col s8">
+
+    </div>
+
+    <div class="col s4">
+      <h4>Check Weather for a Location</h4>
+      <%= form_tag('/locations') do %>
+      <table>
+        <tbody>
+          <tr>
+            <td>
+                <%= f.label :state %>
+                <%= f.select :state, options_for_select(GroupEvent.states, @group_event.state) %>
+            </td>
+          </tr>
+          <tr>
+            <td>
+                <%= f.label :state %>
+                <%= f.select :state, options_for_select(GroupEvent.states, @group_event.state) %>
+            </td>
+          </tr>
+          <tr>
+            <td><%= f.submit class: "btn" %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+<% end %>
+
+  </div>
+
+  <div class="row">
     <div class="col s1">
       <a href="<%= new_location_path %>"><i class="medium material-icons">add</i></a>
     </div>
@@ -18,27 +52,32 @@
     <thead>
       <tr>
         <th>ID</th>
-        <th>Name</th>
-        <th>Description</th>
-        <th>Location</th>
-        <th>State</th>
-        <th>Start/End</th>
-        <th>Actions</th>
+        <th>City</th>
+        <th>Country</th>
+        <th>coords.</th>
+        <th>weather</th>
+        <th>Temp.</th>
       </tr>
     </thead>
     <tbody>
 
 		<% @locations.each do |l| %>
       <tr>
-        <td><%= l.id %></td>
-        <td><%= l.name %></td>
-        <td><%= l.description %></td>
-        <td><%= l.location %></td>
-        <td><%= l.state %></td>
-        <td><%= l.start_date %><br/><%= l.end_date %></td>
+        <td><%= l.city_id %></td>
+        <td><%= l.city_name %></td>
+        <td><%= l.country_code %></td>
         <td>
-          <%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_location_path(id: l.id), class: "btn-flat" %>
-          <%= link_to "<i class='material-icons'>delete</i>".html_safe, location_path(id: l.id), class: "btn-flat", method: :delete, data: {confirm: 'Are you sure?'} %>
+          lat:<%= l.latitude %><br/>
+          lon:<%= l.longitude %>
+        </td>
+        <td>
+          <%= l.weather_title %><br/>
+          <%= l.weather_description %>
+        </td>
+        <td>
+          temp: <%= l.temperature %><br/>
+          min: <%= l.min_temp %><br/>
+          max: <%= l.max_temp %>
         </td>
       </tr>
 		<% end %>

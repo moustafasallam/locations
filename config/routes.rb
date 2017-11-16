@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
 
-  resources :locations
+  resources :locations, only: [:index, :create]
 
   root to: "locations#index"
 end
