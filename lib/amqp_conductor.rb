@@ -6,11 +6,11 @@ class AmqpConductor
 		@bunny = bunny
 		@bunny.start
 		@ch = @bunny.create_channel
-		@queue  = @ch.queue("group_events.create", durable: true)
+		@queue  = @ch.queue("locations.create", durable: true)
 	end
 
 	def send(data)
-		@queue.publish(data, persistent: true, routing_key: "group_events.create")
+		@queue.publish(data, persistent: true, routing_key: "locations.create")
 	end
 
 	def receive

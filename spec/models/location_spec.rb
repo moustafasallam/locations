@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe GroupEvent, type: :model do
 
-  let(:group_event)        {build(:published_event)}
+  let(:location)        {build(:published_event)}
   let(:end_event)        {build(:end_event)}
   let(:past_event)        {build(:past_event)}
 

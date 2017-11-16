@@ -1,19 +1,19 @@
-class Admin::GroupEventsController < ApplicationController
+class LocationsController < ApplicationController
 
 	def index
-		@group_events = params[:query].present? ? GroupEvent.search(params[:query]).results : []
+		@locations = params[:query].present? ? Location.search(params[:query]).results : []
 	end
 
   def show
-    @group_event = GroupEvent.find(params[:id])
+    @location = Location.find(params[:id])
   end
 
   def new
-    @group_event = GroupEvent.new
+    @location = Location.new
   end
 
   def edit
-    @group_event = GroupEvent.find(params[:id])
+    @location = Location.find(params[:id])
   end
 
   def create

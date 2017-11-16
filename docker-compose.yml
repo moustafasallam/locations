@@ -27,7 +27,7 @@ services:
       - RABBITMQ_PASSWORD=guest
       - RABBITMQ_VHOST=/
     volumes:
-      - .:/spectre
+      - .:/weather_me
     ports:
       - "3000:3000"
     depends_on:

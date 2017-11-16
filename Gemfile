@@ -1,6 +1,5 @@
 source 'https://rubygems.org'
 
-
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.0'
 # Use postgresql as the database for Active Record
@@ -20,9 +19,6 @@ gem 'jbuilder', '~> 2.0'
 # bundle exec rake doc:rails generates the API under doc/api.
 gem 'sdoc', '~> 0.4.0', group: :doc
 
-gem 'faker', '~> 1.6', '>= 1.6.3'
-
-gem 'transitions', '~> 1.2', :require => ["transitions", "active_model/transitions"] # Lightweight state machine extracted from ActiveModel
 gem 'pry-rails', '~> 0.3.4' #enhanced ruby console
 
 gem 'elasticsearch-model'
@@ -32,11 +28,9 @@ gem 'materialize-sass', '~> 0.98.2' #materialize css based on material design
 
 gem 'bunny', '~> 2.5' #rabbitmq lib
 gem 'whenever', '~> 0.9.4' #for scheduled cron jobs
-gem "paranoia", "~> 2.2"
 gem 'geocoder', '~> 1.4', '>= 1.4.4'
 
 gem 'kaminari', '~> 0.16.3' #used for backend paginations
-gem 'api-pagination', '~> 4.1.1' #api pagination
 
 group :development, :test do
   gem 'pry-byebug', '~> 3.4', '>= 3.4.2'

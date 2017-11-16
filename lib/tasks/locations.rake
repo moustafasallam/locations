@@ -1,4 +1,4 @@
-namespace :group_events do
+namespace :locations do
 
   desc "add new group_event"
   task :create => :environment do

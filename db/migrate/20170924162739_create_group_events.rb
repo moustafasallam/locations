@@ -1,6 +1,6 @@
 class CreateGroupEvents < ActiveRecord::Migration
   def change
-    create_table :group_events do |t|
+    create_table :locations do |t|
       t.string :name, default: ""
       t.text :description
       t.string :state, default:  "draft"

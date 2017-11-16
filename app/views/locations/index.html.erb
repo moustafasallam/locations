@@ -1,6 +1,6 @@
   <div class="row">
     <div class="col s1">
-      <a href="<%= new_admin_group_event_path %>"><i class="medium material-icons">add</i></a>
+      <a href="<%= new_location_path %>"><i class="medium material-icons">add</i></a>
     </div>
     <form class="col s11" action="/" method="get">
       <div class="row">
@@ -28,17 +28,17 @@
     </thead>
     <tbody>
 
-		<% @group_events.each do |e| %>
+		<% @locations.each do |l| %>
       <tr>
-        <td><%= e.id %></td>
-        <td><%= e.name %></td>
-        <td><%= e.description %></td>
-        <td><%= e.location %></td>
-        <td><%= e.state %></td>
-        <td><%= e.start_date %><br/><%= e.end_date %></td>
+        <td><%= l.id %></td>
+        <td><%= l.name %></td>
+        <td><%= l.description %></td>
+        <td><%= l.location %></td>
+        <td><%= l.state %></td>
+        <td><%= l.start_date %><br/><%= l.end_date %></td>
         <td>
-          <%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_admin_group_event_path(id: e.id), class: "btn-flat" %>
-          <%= link_to "<i class='material-icons'>delete</i>".html_safe, admin_group_event_path(id: e.id), class: "btn-flat", method: :delete, data: {confirm: 'Are you sure?'} %>
+          <%= link_to "<i class='material-icons'>edit</i>".html_safe, edit_location_path(id: l.id), class: "btn-flat" %>
+          <%= link_to "<i class='material-icons'>delete</i>".html_safe, location_path(id: l.id), class: "btn-flat", method: :delete, data: {confirm: 'Are you sure?'} %>
         </td>
       </tr>
 		<% end %>
