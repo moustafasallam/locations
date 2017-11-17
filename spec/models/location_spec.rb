@@ -1,34 +1,30 @@
 require 'rails_helper'
 
-RSpec.describe GroupEvent, type: :model do
+RSpec.describe Location, type: :model do
 
-  let(:location)        {build(:published_event)}
-  let(:end_event)        {build(:end_event)}
-  let(:past_event)        {build(:past_event)}
+  describe "Location" do
 
-  describe "GroupEvent" do
+    let(:location)        {build(:location)}
+    let(:data)        {build(:api_sample)}
 
-    it "expect state to be published" do
-      expect(group_event.state).to eq("published")
+    it "location is valid" do
+      expect(location).to be_valid
     end
 
-    it "end date is less than start date" do
-    	validator = GroupEventValidator.new(end_event.as_json(root: false))
-    	expect(validator.is_valid?).to eq(false)
-    	expect(validator.message).to eq("date range wrong, end date can't be less than start date")
-  	end
+    it "location is not valid" do
+      location.city_name = nil
+      expect(location).not_to be_valid
+    end
 
-  	it "start date in the past" do
-  		validator = GroupEventValidator.new(past_event.as_json(root: false))
-  		expect(validator.is_valid?).to eq(false)
-    	expect(validator.message).to eq("can't set start date in the past")
-  	end
+    it "passing correct data structure coming from the weather api" do
+      result = Location.prepare_data(data[:basic])
+      expect(result['city_name']).to eq('London')
+      expect(result['country_code']).to eq('GB')
+    end
 
-  	it "valid Event" do
-  		validator = GroupEventValidator.new(group_event.as_json(root: false))
-  		expect(validator.is_valid?).to eq(true)
-  	end
-
+    it "passing empty data structure coming from the weather api" do
+      expect(Location.prepare_data({})).to  eq({})
+    end
   end
 
 end

@@ -3,6 +3,8 @@ class Location < ActiveRecord::Base
   include Elasticsearch::Model
   include Elasticsearch::Model::Callbacks
 
+  validates :city_name, presence: true
+
   def as_indexed_json(options={})
     as_json(only: [:id, :city_name, :weather_title, :weather_description, :country_code])
   end
@@ -25,6 +27,8 @@ class Location < ActiveRecord::Base
 		 	"latitude"						=> res['coord']['lat'],
 		 	"longitude"						=> res['coord']['lon'],
 		}
+	rescue => e
+		{}
   end
 
 end

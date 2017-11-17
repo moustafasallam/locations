@@ -12,9 +12,13 @@ class LocationsController < ApplicationController
   		w.get_response('/weather/', city_id)
   		if w.is_successful
   			data = Location.prepare_data(w.response)
-  			found ||= Location.new
-        found.update_attributes!(data)
-  			success(found.as_json)
+        if data.present?
+  			  found ||= Location.new
+          found.update_attributes!(data)
+  			  success(found.as_json)
+        else
+          error(500, "Unknown Error!")
+        end
   		else
   			error(w.response['cod'], w.response['message'])
   		end
