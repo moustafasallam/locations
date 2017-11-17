@@ -54,15 +54,15 @@
 
     </div>
 
-    <div class="col s4">
-      <h5>Check Weather for a Location</h5>
-      <%= form_tag('/locations') do %>
+    <div class="col s4 weather-area">
+      <h5>Check Weather</h5>
+      <%= form_tag('/locations', id: 'weather-check-form') do %>
       <table>
         <tbody>
           <tr>
             <td>
               <%= label_tag :Country %>
-              <%= select_tag :country, options_for_select(get_countries) %>
+              <%= select_tag :country_code, options_for_select(get_countries) %>
             </td>
           </tr>
           <tr>
@@ -72,7 +72,7 @@
             </td>
           </tr>
           <tr>
-            <td><%= submit_tag "Get Weather Data!" %></td>
+            <td><%= submit_tag "Get Weather Data!", class: 'btn' %></td>
           </tr>
         </tbody>
       </table>
