@@ -11,19 +11,17 @@ class OpenWeather
     @response = {}
   end
 
-  def get_by_name(entity)
-    @response = self.class.get(entity, query: {q: "#{@city_name},#{@country_code}"}).parsed_response
+  def get_response(entity, city_id=nil)
+    if city_id.present?
+      @response = self.class.get(entity, query: {id: city_id}).parsed_response
+    else
+      @response = self.class.get(entity, query: {q: "#{@city_name},#{@country_code}"}).parsed_response
+    end
   rescue => e
     @response = e
   end
 
-  def get_by_id(entity, city_id)
-    @response = self.class.get(entity, query: {id: city_id}).parsed_response
-  rescue => e
-    @response = e
-  end
-
-  def get_response
+  def response
     @response
   end
 

@@ -6,25 +6,17 @@ class LocationsController < ApplicationController
 
   def create
   	found = Location.where(country_code: params[:country_code], city_name: params[:city_name]).first
-  	if found.blank?
+  	if found.blank? || found.updated_at.to_date != Time.now.to_date
   		w = OpenWeather.new(params)
-  		w.get_by_name('/weather/')
+      city_id = found.present? ? found.city_id : nil
+  		w.get_response('/weather/', city_id)
   		if w.is_successful
-  			data = Location.prepare_data(w.get_response)
-  			found = Location.create!(data)
+  			data = Location.prepare_data(w.response)
+  			found ||= Location.new
+        found.update_attributes!(data)
   			success(found.as_json)
   		else
-  			error(w.get_response['cod'], w.get_response['message'])
-  		end
-  	elsif found.updated_at.to_date != Time.now.to_date
-  		w = OpenWeather.new(params)
-  		w.get_by_id('/weather/', found.city_id)
-  		if w.is_successful
-  			data = Location.prepare_data(w.get_response)
-  			found.update_attributes!(data)
-  			success(found.as_json)
-  		else
-  			error(w.get_response['cod'], w.get_response['message'])
+  			error(w.response['cod'], w.response['message'])
   		end
   	else
   		success(found.as_json)
