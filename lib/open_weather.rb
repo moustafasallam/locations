@@ -3,7 +3,8 @@ class OpenWeather
   debug_output
 
   base_uri "http://api.openweathermap.org/data/2.5/"
-  default_params appid: "21528a38986f5d84ab48ee1793a7fddd"
+  default_params appid: ENV['WEATHER_API_KEY']
+  default_params units: "metric"
 
   def initialize(params)
     @country_code = params[:country_code]

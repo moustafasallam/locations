@@ -1,6 +1,15 @@
+Area to improve
+
+1- Need to have a city json and use cities gem to so when user select a country via ajax I automatically list all available cities for this chosen country.
+2- Need to highlight and improve the UI for weather data
+3- Need to improve elasticsearch to search by part of the word to the exact.
+4- give the user the option to control the metric and  instead of forcing only celsuis.
+
 to boot it up do the follow steps
 
 1- You need to have `docker` and `docker-compose` utitlies install on your machine.
+
+2- Set the ENV VARS at the `docker-compose.yml` file.
 
 2- Open your terminal
 
