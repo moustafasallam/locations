@@ -12,6 +12,7 @@ class LocationsController < ApplicationController
   		if w.is_successful
   			data = Location.prepare_data(w.get_response)
   			found = Location.create!(data)
+  			success(found.as_json)
   		else
   			error(w.get_response['cod'], w.get_response['message'])
   		end
@@ -21,11 +22,13 @@ class LocationsController < ApplicationController
   		if w.is_successful
   			data = Location.prepare_data(w.get_response)
   			found.update_attributes!(data)
+  			success(found.as_json)
   		else
   			error(w.get_response['cod'], w.get_response['message'])
   		end
+  	else
+  		success(found.as_json)
   	end
-  	success(found.as_json)
   end
 
 end
