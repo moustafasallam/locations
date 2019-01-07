@@ -11,13 +11,6 @@ services:
       - elasticsearch:/usr/share/elasticsearch/data
   web:
     build: .
-    environment:
-      - RAILS_ENV=development
-      - ELASTICSEARCH_HOST=elasticsearch
-      - POSTGRESQL_HOST=db
-      - POSTGRESQL_PASSWORD=
-      - POSTGRESQL_USERNAME=postgres
-      - WEATHER_API_KEY=21528a38986f
     volumes:
       - .:/weather_me
     ports:

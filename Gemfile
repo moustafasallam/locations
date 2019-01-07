@@ -33,8 +33,10 @@ gem 'kaminari', '~> 0.16.3' #used for backend paginations
 gem 'countries', '~> 1.1.0'
 #gem 'cities', '~> 0.3.1'
 gem 'httparty', '~> 0.14.0' # for http requests
+gem 'dotenv-rails', '~> 2.0' #gem 'dotenv-deployment', '~> 0.3.0'
 
 group :development, :test do
+  gem 'rspec-rails', '~> 3.5'
   gem 'pry-byebug', '~> 3.4', '>= 3.4.2'
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
@@ -46,8 +48,8 @@ group :development do
 end
 
 group :test do
-	gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
+  #gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
   gem 'guard-rspec'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
 end
