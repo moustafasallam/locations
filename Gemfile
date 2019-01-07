@@ -49,7 +49,9 @@ end
 
 group :test do
   gem 'factory_girl_rails'
-  #gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+  gem 'shoulda-matchers', '~> 3.1', '>= 3.1.2'
+  gem 'cucumber-rails', '~> 1.4', '>= 1.4.3'
+  gem 'selenium-webdriver', '~> 3.13'
   gem 'guard-rspec'
   gem 'database_cleaner', '~> 1.5', '>= 1.5.3'
 end

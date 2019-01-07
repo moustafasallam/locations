@@ -7,13 +7,8 @@ RSpec.describe Location, type: :model do
     let(:location)        {build(:location)}
     let(:data)        {build(:api_sample)}
 
-    it "location is valid" do
-      expect(location).to be_valid
-    end
-
-    it "location is not valid" do
-      location.city_name = nil
-      expect(location).not_to be_valid
+    it "should validate the presence of city name" do
+      should validate_presence_of(:city_name)
     end
 
     it "passing correct data structure coming from the weather api" do
